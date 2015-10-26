@@ -1,0 +1,7 @@
+<ul>
+  <li data-ng-repeat="post in ctrl.data.posts track by post.id">
+    <post post="post"></post>
+  </li>
+</ul>
+<a data-ng-href="#/page/{{ ctrl.data.page - 1 }}" data-ng-hide="ctrl.data.page === 0">« Prev</a>
+<a data-ng-href="#/page/{{ ctrl.data.page + 1 }}">Next »</a>

@@ -1,0 +1,35 @@
+<div>
+  <h1>{{ ctrl.data.post.title }}</h1>
+  <p>
+    {{ ctrl.data.post.body }}
+  </p>
+
+  <span
+    data-ng-show="ctrl.data.comments.length"
+    data-ng-click="ctrl.toggleComments()"
+  >
+    <b
+      data-ng-hide="ctrl.data.showComments"
+    >
+      Show comments
+    </b>
+
+    <i
+      data-ng-show="ctrl.data.showComments"
+    >
+      Hide comments
+    </i>
+  </span>
+
+  <ul
+    data-ng-show="ctrl.data.showComments && ctrl.data.comments.length"
+  >
+    <li
+      data-ng-repeat="comment in ctrl.data.comments track by comment.id"
+    >
+      {{ comment.body }}
+    </li>
+  </ul>
+
+</div>
+<a data-ng-href="#/">« Home</a>

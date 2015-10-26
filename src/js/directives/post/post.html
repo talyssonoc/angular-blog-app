@@ -1,0 +1,19 @@
+<div>
+  <h2>
+    <a
+      data-ng-href="#/post/{{ ctrl.post.id }}"
+    >
+      {{ ctrl.data.post.title }}
+    </a>
+  </h2>
+  <p>
+    {{ ctrl.data.post.body | limitTo:400 }}
+
+    <a
+      data-ng-href="#/post/{{ ctrl.post.id }}"
+      data-ng-hide="ctrl.post.body.length <= 140"
+    >
+      Read more »
+    </a>
+  </p>
+</div>
