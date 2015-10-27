@@ -7,7 +7,10 @@ var cssGlob = 'src/css/**/*.scss';
 gulp.task('build:css', function () {
   return gulp.src(cssGlob)
     .pipe(sass({
-        includePaths: [path.resolve('./node_modules')]
+        includePaths: [
+          path.resolve('./bower_components'),
+          path.resolve('./node_modules')
+        ]
       }).on('error', sass.logError))
     .pipe(gulp.dest('build/css'));
 });

@@ -1,28 +1,17 @@
 class PostPageController {
-  static $inject = ['$routeParams', 'Post', 'Comment'];
+  static $inject = ['$routeParams', 'Post'];
 
-  constructor($routeParams, Post, Comment) {
-    this.data = {
-      showComments: false,
-      comments: [],
-      post: {}
-    };
+  constructor($routeParams, Post) {
+    this.comments = [];
+    this.post = {};
 
     Post.get({
-      id: $routeParams.post
+      id: $routeParams.post,
+      _embed: 'comments'
     }, (post) => {
-      this.data.post = post;
+      this.post = post;
+      this.comments = post.comments;
     });
-
-    Comment.fromPost({
-      postId: $routeParams.post
-    }, (comments) => {
-      this.data.comments = comments;
-    });
-  }
-
-  toggleComments() {
-    this.data.showComments = !this.data.showComments;
   }
 }
 

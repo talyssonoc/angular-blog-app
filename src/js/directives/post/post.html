@@ -3,17 +3,20 @@
     <a
       data-ng-href="#/post/{{ ctrl.post.id }}"
     >
-      {{ ctrl.data.post.title }}
+      {{ ctrl.post.title }}
     </a>
   </h2>
   <p>
-    {{ ctrl.data.post.body | limitTo:400 }}
+    {{ (ctrl.complete && ctrl.post.body) || (ctrl.post.body | limitTo:400) }}
 
-    <a
-      data-ng-href="#/post/{{ ctrl.post.id }}"
-      data-ng-hide="ctrl.post.body.length <= 140"
+    <div
+      data-ng-hide="ctrl.complete || (ctrl.post.body.length <= 140)"
     >
-      Read more »
-    </a>
+      <a
+        data-ng-href="#/post/{{ ctrl.post.id }}"
+      >
+        Read more »
+      </a>
+    </div>
   </p>
 </div>

@@ -12,14 +12,19 @@ import blogConfig from 'services/blogConfig';
 
 import BlogController from 'BlogController';
 
+import LayoutDirective from 'directives/layout/LayoutDirective';
+
+import CommentsController from 'directives/comments/CommentsController';
+import CommentsDirective from 'directives/comments/CommentsDirective';
+
+import PostController from 'directives/post/PostController';
+import PostDirective from 'directives/post/PostDirective';
+
 import PageController from 'pages/page/PageController';
 import PageDirective from 'pages/page/PageDirective';
 
 import PostPageController from 'pages/post-page/PostPageController';
 import PostPageDirective from 'pages/post-page/PostPageDirective';
-
-import PostController from 'directives/post/PostController';
-import PostDirective from 'directives/post/PostDirective';
 
 const app = angular.module('blogApp', [
   ngRoute,
@@ -35,11 +40,16 @@ app.factory('Comment', Comment);
 
 app.controller('BlogController', BlogController);
 
+app.directive('layout', LayoutDirective);
+
+app.controller('CommentsController', CommentsController);
+app.directive('comments', CommentsDirective);
+
+app.controller('PostController', PostController);
+app.directive('post', PostDirective);
+
 app.controller('PageController', PageController);
 app.directive('page', PageDirective);
 
 app.controller('PostPageController', PostPageController);
 app.directive('postPage', PostPageDirective);
-
-app.controller('PostController', PostController);
-app.directive('post', PostDirective);

@@ -9,7 +9,8 @@ class PostDirective {
     this.controllerAs = 'ctrl';
 
     this.bindToController = {
-      'data.post': '=post'
+      post: '=',
+      complete: '='
     };
 
     this.template = postTemplate;

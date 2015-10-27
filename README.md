@@ -14,6 +14,12 @@ To the API I've used [matheusazzi/blog-fake-api](https://github.com/matheusazzi/
 
 ## Run the project
 
+First, install the dependencies:
+
+```sh
+  $ npm install && bower install
+```
+
 To run the project, use `gulp serve`.
 
 ## Gulp tasks

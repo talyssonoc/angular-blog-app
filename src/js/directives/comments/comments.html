@@ -1,0 +1,31 @@
+<div>
+  <span
+    data-ng-show="ctrl.comments.length"
+    data-ng-click="ctrl.toggleComments()"
+  >
+    <button
+      type="submit"
+      data-ng-hide="ctrl.showComments"
+      class="pure-button pure-button-primary"
+    >
+      Show comments
+    </button>
+
+    <button
+      data-ng-show="ctrl.showComments"
+      class="pure-button pure-button-primary"
+    >
+      Hide comments
+    </button>
+  </span>
+
+  <ul
+    data-ng-show="ctrl.showComments && ctrl.comments.length"
+  >
+    <li
+      data-ng-repeat="comment in ctrl.comments track by comment.id"
+    >
+      {{ comment.body }}
+    </li>
+  </ul>
+</div>
