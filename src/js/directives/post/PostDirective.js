@@ -1,4 +1,4 @@
-import postTemplate from 'directives/post/post.html';
+import postTemplate from './post.html';
 
 class PostDirective {
   constructor() {

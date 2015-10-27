@@ -1,4 +1,4 @@
-import commentsTemplate from 'directives/comments/comments.html';
+import commentsTemplate from './comments.html';
 
 class CommentsDirective {
   constructor() {

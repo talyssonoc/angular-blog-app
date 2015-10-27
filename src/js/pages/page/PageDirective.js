@@ -1,4 +1,4 @@
-import pageTemplate from 'pages/page/page.html';
+import pageTemplate from './page.html';
 
 class PageDirective {
   constructor() {

@@ -1,4 +1,4 @@
-import layoutTemplate from 'directives/layout/layout.html';
+import layoutTemplate from './layout.html';
 
 class LayoutDirective {
   constructor() {

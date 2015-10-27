@@ -1,4 +1,4 @@
-import postPageTemplate from 'pages/post-page/post-page.html';
+import postPageTemplate from './post-page.html';
 
 class PostPageDirective {
   constructor() {

@@ -6,17 +6,24 @@
       {{ ctrl.post.title }}
     </a>
   </h2>
+
   <p>
     {{ (ctrl.complete && ctrl.post.body) || (ctrl.post.body | limitTo:400) }}
 
-    <div
-      data-ng-hide="ctrl.complete || (ctrl.post.body.length <= 140)"
+
+  </p>
+
+  <p data-ng-show="ctrl.complete">
+    <i>by {{ ctrl.post.user.name }}</i>
+  </p>
+
+  <p
+    data-ng-hide="ctrl.complete || (ctrl.post.body.length <= 140)"
+  >
+    <a
+      data-ng-href="#/post/{{ ctrl.post.id }}"
     >
-      <a
-        data-ng-href="#/post/{{ ctrl.post.id }}"
-      >
-        Read more »
-      </a>
-    </div>
+      Read more »
+    </a>
   </p>
 </div>
