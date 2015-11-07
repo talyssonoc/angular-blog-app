@@ -7,7 +7,7 @@
   </div>
 
   <nav>
-    <a data-ng-href="#/page/{{ ctrl.page - 1 }}" data-ng-hide="ctrl.page === 0">« Newer</a>
-    <a data-ng-href="#/page/{{ ctrl.page + 1 }}">Older »</a>
+    <a data-ng-href="/page/{{ ctrl.page - 1 }}" data-ng-hide="ctrl.page === 1">« Newer</a>
+    <a data-ng-href="/page/{{ ctrl.page + 1 }}">Older »</a>
   </nav>
 </layout>

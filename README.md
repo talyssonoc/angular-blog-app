@@ -8,6 +8,14 @@ In order to learn Angular, I've created a blog app following some posts about go
 - [ng-best-practices](https://www.outlearn.com/learn/vkarpov15/ng-best-practices)
 - [Refactoring Angular Apps to Component Style](http://teropa.info/blog/2015/10/18/refactoring-angular-apps-to-components.html)
 
+## Directives approach
+
+The approach I've chosen to use has 3 types of directives:
+
+- _pages_: `E` directives with isolated scope that holds a entire page, used on `routes.js` (see `page` directive and the `routes.js` file)
+- _components_: `E` directives with isolated scope, work like React components. Every external data must be passed as attributes (see `post` directive)
+- _helpers_: `A` directives with "normal" scope, used for helpers and concerns (see `time` directive)
+
 ## API
 
 To the API I've used [matheusazzi/blog-fake-api](https://github.com/matheusazzi/blog-fake-api), you must have it running together with this project.

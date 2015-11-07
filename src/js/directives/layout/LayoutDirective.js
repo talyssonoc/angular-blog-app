@@ -3,7 +3,7 @@ import layoutTemplate from './layout.html';
 class LayoutDirective {
   constructor() {
     this.restrict = 'E';
-    this.scope = {};
+
     this.template = layoutTemplate;
     this.transclude = true;
   }

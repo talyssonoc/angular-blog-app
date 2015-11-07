@@ -1,11 +1,15 @@
-<div>
+<div data-time>
   <h2>
     <a
-      data-ng-href="#/post/{{ ctrl.post.id }}"
+      data-ng-href="/post/{{ ctrl.post.id }}"
     >
       {{ ctrl.post.title }}
     </a>
   </h2>
+
+  <small data-ng-hide="ctrl.complete">
+    Rendered at: {{ time.getTime() }}
+  </small>
 
   <p>
     {{ (ctrl.complete && ctrl.post.body) || (ctrl.post.body | limitTo:400) }}
@@ -21,7 +25,7 @@
     data-ng-hide="ctrl.complete || (ctrl.post.body.length <= 140)"
   >
     <a
-      data-ng-href="#/post/{{ ctrl.post.id }}"
+      data-ng-href="/post/{{ ctrl.post.id }}"
     >
       Read more »
     </a>

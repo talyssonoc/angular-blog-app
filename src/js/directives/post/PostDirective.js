@@ -3,6 +3,7 @@ import postTemplate from './post.html';
 class PostDirective {
   constructor() {
     this.restrict = 'E';
+    this.replace = true;
     this.scope = {};
 
     this.controller = 'PostController';

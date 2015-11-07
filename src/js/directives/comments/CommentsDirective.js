@@ -3,6 +3,7 @@ import commentsTemplate from './comments.html';
 class CommentsDirective {
   constructor() {
     this.restrict = 'E';
+    this.replace = true;
     this.scope = {};
 
     this.controller = 'CommentsController';
