@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var path = require('path');
 
-var imgGlob = 'src/img/**/*';
+var imgGlob = 'app/client/img/**/*';
 
 gulp.task('build:img', function () {
   return gulp.src(imgGlob)

@@ -1,9 +1,10 @@
 var gulp = require('gulp');
-var webserver = require('gulp-webserver');
+var nodemon = require('gulp-nodemon');
 
 gulp.task('serve', ['watch'], function() {
-  gulp.src('build')
-    .pipe(webserver({
-      open: true
-    }));
+  nodemon({
+    script: 'app/server/index.js',
+    ext: 'js html',
+    ignore: ['build/**', 'node_modules/**']
+  });
 });

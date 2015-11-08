@@ -4,8 +4,7 @@ const CommentFactory = [
     const apiUrl = blogConfig.get('apiUrl');
 
     const Comment = $resource(`${ apiUrl }/comments/:id`,
-    null,
-    {
+    null, {
       fromPost: {
         isArray: true,
         url: `${ apiUrl }/posts/:postId/comments`

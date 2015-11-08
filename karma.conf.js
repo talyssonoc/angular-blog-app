@@ -15,18 +15,18 @@ module.exports = function(config) {
 
     files: [
       'spec/**/*.js',
-      'src/js/index.js'
+      'app/client/js/index.js'
     ],
 
     preprocessors: {
-      'src/js/**/*.js': ['browserify'],
+      'app/client/js/**/*.js': ['browserify'],
       'spec/**/*.js': ['browserify']
     },
 
     browserify: {
       debug: true,
       transform: ['babelify', 'stringify'],
-      paths: ['node_modules', 'src/js']
+      paths: ['node_modules', 'app/client/js']
     },
 
     reporters: ['progress']

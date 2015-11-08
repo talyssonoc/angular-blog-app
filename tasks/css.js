@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var path = require('path');
 
-var cssGlob = 'src/css/**/*.scss';
+var cssGlob = 'app/client/css/**/*.scss';
 
 gulp.task('build:css', function () {
   return gulp.src(cssGlob)

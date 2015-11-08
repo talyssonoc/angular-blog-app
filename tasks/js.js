@@ -8,14 +8,14 @@ var source = require('vinyl-source-stream');
 var eslint = require('gulp-eslint');
 var Server = require('karma').Server;
 
-var jsGlob = 'src/js/**/*';
+var jsGlob = 'app/client/js/**/*';
 var specGlob = 'spec/**/*.js';
 
 gulp.task('build:js', function () {
   browserify({
-    entries: 'src/js/index.js',
+    entries: 'app/client/js/index.js',
     debug: true,
-    paths: ['node_modules', 'src/js'],
+    paths: ['node_modules', 'app/client/js'],
     transform: [
       babelify,
       stringify(['.html'])
