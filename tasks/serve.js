@@ -5,6 +5,6 @@ gulp.task('serve', ['watch'], function() {
   nodemon({
     script: 'app/server/index.js',
     ext: 'js html',
-    ignore: ['build/**', 'node_modules/**']
+    ignore: ['build/**', 'app/client/**', 'node_modules/**']
   });
 });

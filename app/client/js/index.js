@@ -5,10 +5,9 @@ import ngRoute from 'angular-route';
 
 import routes from 'routes';
 
-import blogConfig from 'services/blogConfig';
-
 import directives from 'directives';
 import resources from 'resources';
+import services from 'services';
 import pages from 'pages';
 
 const app = angular.module('blogApp', [
@@ -17,9 +16,8 @@ const app = angular.module('blogApp', [
 
   directives,
   resources,
+  services,
   pages
 ]);
 
 app.config(routes);
-
-app.factory('blogConfig', blogConfig);
