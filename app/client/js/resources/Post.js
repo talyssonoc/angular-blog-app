@@ -12,6 +12,10 @@ const PostFactory = [
         params: {
           _limit: blogConfig.get('postsPerPage')
         }
+      },
+      comments: {
+        url: `${ apiUrl }/posts/:postId/comments`,
+        isArray: true
       }
     });
 

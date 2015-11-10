@@ -2,14 +2,18 @@ class PostPageController {
   static $inject = [
     '$routeParams',
     'setTitle',
-    'Post'
+    'eventEmitter',
+    'Post',
+    'User'
   ];
 
-  constructor($routeParams, setTitle, Post) {
+  constructor($routeParams, setTitle, eventEmitter, Post, User) {
     this.deps = {
       $routeParams,
       setTitle,
-      Post
+      eventEmitter,
+      Post,
+      User
     };
 
     this.postId = $routeParams.post;
@@ -19,13 +23,22 @@ class PostPageController {
     this.user = {};
 
     this.loadPost();
+
+    eventEmitter.on('NEW_COMMENT', () => {
+      this.queryComments();
+    });
   }
 
   loadPost() {
     const {
       setTitle,
-      Post
+      Post,
+      User
     } = this.deps;
+
+    User.query((users) => {
+      this.users = users;
+    });
 
     Post.get({
       id: this.postId,
@@ -37,6 +50,18 @@ class PostPageController {
       this.post = post;
       this.comments = post.comments;
       this.user = post.user;
+    });
+  }
+
+  queryComments() {
+    const {
+      Post
+    } = this.deps;
+
+    Post.comments({
+      postId: this.post.id
+    }, (comments) => {
+      this.comments = comments;
     });
   }
 }

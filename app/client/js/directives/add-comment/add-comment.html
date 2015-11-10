@@ -1,0 +1,10 @@
+<form novalidate>
+  <textarea ng-model="ctrl.commentBody"></textarea>
+  <label>Author</label>
+  <select
+    ng-model="ctrl.author"
+    ng-options="user.name for user in ctrl.users track by user.id"
+  ></select>
+
+  <input type="submit" ng-click="ctrl.submitComment()">
+</form>
