@@ -45,7 +45,8 @@ class PostPageController {
       _embed: 'comments',
       _expand: ['user', 'post']
     }, (post) => {
-      setTitle(`${post.title} - Blog app`);
+      this.title = `${post.title} - Blog app`;
+      setTitle(this.title);
 
       this.post = post;
       this.comments = post.comments;

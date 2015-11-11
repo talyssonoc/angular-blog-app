@@ -16,7 +16,7 @@ class PageController {
 
     this.pageNumber = Number($routeParams.page) || 1;
 
-    this.title = `Blog app - Page ${this.pageNumber}`
+    this.title = `Blog app - Page ${this.pageNumber}`;
 
     setTitle(this.title);
 

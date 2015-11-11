@@ -2,9 +2,12 @@ import PageController from 'pages/page/PageController';
 
 describe('PageController', () => {
   var blogConfig,
+      setTitle,
       Post;
 
   before(() => {
+    setTitle = () => {};
+
     blogConfig = {
       get() {}
     };
@@ -14,24 +17,24 @@ describe('PageController', () => {
     };
   });
 
-  it('should load page 0 if no page is passed', () => {
-    let controller = new PageController({}, blogConfig, Post);
+  it('should load page 1 if no page is passed', () => {
+    let controller = new PageController({}, setTitle, blogConfig, Post);
 
-    expect(controller.data.page).to.be.equal(0);
+    expect(controller.pageNumber).to.be.equal(1);
   });
 
   it('should parse page to Number', () => {
     let controller = new PageController({
-      page: '1'
-    }, blogConfig, Post);
+      page: '2'
+    }, setTitle, blogConfig, Post);
 
-    expect(controller.data.page).to.be.equal(1);
+    expect(controller.pageNumber).to.be.equal(2);
   });
 
   it('should read number of posts per page from config', () => {
     sinon.stub(blogConfig, 'get');
 
-    let controller = new PageController({}, blogConfig, Post);
+    let controller = new PageController({}, setTitle, blogConfig, Post);
 
     expect(blogConfig.get.calledWith('postsPerPage')).to.be.true;
 
