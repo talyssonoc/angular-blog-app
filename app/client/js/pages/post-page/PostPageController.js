@@ -1,22 +1,22 @@
 class PostPageController {
   static $inject = [
-    '$routeParams',
+    '$stateParams',
     'setTitle',
     'eventEmitter',
     'Post',
     'User'
   ];
 
-  constructor($routeParams, setTitle, eventEmitter, Post, User) {
+  constructor($stateParams, setTitle, eventEmitter, Post, User) {
     this.deps = {
-      $routeParams,
+      $stateParams,
       setTitle,
       eventEmitter,
       Post,
       User
     };
 
-    this.postId = $routeParams.post;
+    this.postId = $stateParams.id;
 
     this.comments = [];
     this.post = {};

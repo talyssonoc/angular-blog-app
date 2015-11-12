@@ -25,7 +25,7 @@ describe('PageController', () => {
 
   it('should parse page to Number', () => {
     let controller = new PageController({
-      page: '2'
+      pageNumber: '2'
     }, setTitle, blogConfig, Post);
 
     expect(controller.pageNumber).to.be.equal(2);

@@ -8,14 +8,14 @@
 
   <nav>
     <a
-      data-ng-href="/page/{{ ctrl.pageNumber - 1 }}"
+      data-ui-sref="page({ pageNumber: ctrl.pageNumber - 1 })"
       data-ng-hide="ctrl.pageNumber === 1"
     >
       « Newer
     </a>
 
     <a
-      data-ng-href="/page/{{ ctrl.pageNumber + 1 }}"
+      data-ui-sref="page({ pageNumber: ctrl.pageNumber + 1 })"
     >
       Older »
     </a>

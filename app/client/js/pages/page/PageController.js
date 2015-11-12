@@ -1,20 +1,20 @@
 class PageController {
   static $inject = [
-    '$routeParams',
+    '$stateParams',
     'setTitle',
     'blogConfig',
     'Post'
   ];
 
-  constructor($routeParams, setTitle, blogConfig, Post) {
+  constructor($stateParams, setTitle, blogConfig, Post) {
     this.deps = {
-      $routeParams,
+      $stateParams,
       setTitle,
       blogConfig,
       Post
     };
 
-    this.pageNumber = Number($routeParams.page) || 1;
+    this.pageNumber = Number($stateParams.pageNumber) || 1;
 
     this.title = `Blog app - Page ${this.pageNumber}`;
 

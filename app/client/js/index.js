@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 import ngResource from 'angular-resource';
-import ngRoute from 'angular-route';
+import uiRouter from 'angular-ui-router';
 
 import routes from 'routes';
 
@@ -12,7 +12,8 @@ import pages from 'pages';
 
 const app = angular.module('blogApp', [
   ngResource,
-  ngRoute,
+
+  uiRouter,
 
   directives,
   resources,

@@ -1,7 +1,7 @@
 <div data-time>
   <h2>
     <a
-      data-ng-href="/post/{{ ctrl.post.id }}"
+      data-ui-sref="post({ id: ctrl.post.id })"
     >
       {{ ctrl.post.title }}
     </a>
@@ -25,7 +25,7 @@
     data-ng-hide="ctrl.complete || (ctrl.post.body.length <= 140)"
   >
     <a
-      data-ng-href="/post/{{ ctrl.post.id }}"
+      data-ui-sref="post({ id: ctrl.post.id })"
     >
       Read more »
     </a>

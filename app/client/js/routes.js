@@ -1,21 +1,24 @@
 const routes = [
-  '$routeProvider', '$locationProvider',
-  ($routeProvider, $locationProvider) => {
+  '$stateProvider', '$locationProvider',
+  ($stateProvider, $locationProvider) => {
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: false
     });
 
-    $routeProvider
-    .when('/', {
-      template: '<page></page>'
-    })
-    .when('/page/:page', {
-      template: '<page></page>'
-    })
-    .when('/post/:post', {
-      template: '<post-page></post-page>'
-    });
+    $stateProvider
+      .state('home', {
+        url: '/',
+        template: '<page></page>'
+      })
+      .state('page', {
+        url: '/page/:pageNumber',
+        template: '<page></page>'
+      })
+      .state('post', {
+        url: '/post/:id',
+        template: '<post-page></post-page>'
+      });
   }
 ];
 

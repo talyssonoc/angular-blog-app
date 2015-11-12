@@ -38,7 +38,7 @@ describe('PostPageController', () => {
     sinon.spy(User, 'query');
 
     let controller = new PostPageController({
-      post: 1
+      id: 1
     },
     setTitle, eventEmitter, Post, User);
 
