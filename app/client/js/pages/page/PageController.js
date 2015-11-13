@@ -29,9 +29,7 @@ class PageController {
       blogConfig
     } = this.deps;
 
-    Post.page({
-      _start: (this.pageNumber - 1) * blogConfig.get('postsPerPage')
-    }, (posts) => {
+    Post.$page(this.pageNumber).$then((posts) => {
       this.posts = posts;
     });
   }
