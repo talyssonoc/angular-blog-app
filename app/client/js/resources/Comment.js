@@ -1,13 +1,15 @@
 const CommentFactory = [
-  '$resource', 'blogConfig',
-  ($resource, blogConfig) => {
+  'restmod', 'blogConfig',
+  (restmod, blogConfig) => {
     const apiUrl = blogConfig.get('apiUrl');
 
-    const Comment = $resource(`${ apiUrl }/comments/:id`,
-    null, {
-      fromPost: {
-        isArray: true,
-        url: `${ apiUrl }/posts/:postId/comments`
+    const Comment = restmod.model(`${ apiUrl }/comments`)
+    .mix({
+      post: {
+        belongsTo: 'Post'
+      },
+      user: {
+        belongsTo: 'User'
       }
     });
 

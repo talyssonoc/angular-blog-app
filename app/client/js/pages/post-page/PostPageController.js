@@ -4,16 +4,18 @@ class PostPageController {
     'setTitle',
     'eventEmitter',
     'Post',
-    'User'
+    'User',
+    'Comment'
   ];
 
-  constructor($stateParams, setTitle, eventEmitter, Post, User) {
+  constructor($stateParams, setTitle, eventEmitter, Post, User, Comment) {
     this.deps = {
       $stateParams,
       setTitle,
       eventEmitter,
       Post,
-      User
+      User,
+      Comment
     };
 
     this.postId = $stateParams.id;
@@ -24,8 +26,8 @@ class PostPageController {
 
     this.loadPost();
 
-    eventEmitter.on('NEW_COMMENT', () => {
-      this.queryComments();
+    eventEmitter.on('NEW_COMMENT', (event, commentData) => {
+      this.addComment(commentData);
     });
   }
 
@@ -36,15 +38,14 @@ class PostPageController {
       User
     } = this.deps;
 
-    User.query((users) => {
+    User.$search().$then((users) => {
       this.users = users;
     });
 
-    Post.get({
-      id: this.postId,
+    Post.$find(this.postId, {
       _embed: 'comments',
       _expand: ['user', 'post']
-    }, (post) => {
+    }).$then((post) => {
       this.title = `${post.title} - Blog app`;
       setTitle(this.title);
 
@@ -54,16 +55,19 @@ class PostPageController {
     });
   }
 
-  queryComments() {
+  addComment(commentData) {
     const {
-      Post
+      Comment
     } = this.deps;
 
-    Post.comments({
-      postId: this.post.id
-    }, (comments) => {
-      this.comments = comments;
+    commentData.post = this.post;
+
+    Comment.$build(commentData).$save().$then(() => {
+      this.post.comments.$refresh((comments) => {
+        this.comments = comments;
+      });
     });
+
   }
 }
 

@@ -1,9 +1,11 @@
 import angular from 'angular';
 
-import ngResource from 'angular-resource';
+import restmod from 'angular-restmod';
+
 import uiRouter from 'angular-ui-router';
 
-import routes from 'routes';
+import routes from 'config/routes';
+import restmodConfig from 'config/restmod';
 
 import directives from 'directives';
 import resources from 'resources';
@@ -11,8 +13,7 @@ import services from 'services';
 import pages from 'pages';
 
 const app = angular.module('blogApp', [
-  ngResource,
-
+  'restmod',
   uiRouter,
 
   directives,
@@ -22,3 +23,4 @@ const app = angular.module('blogApp', [
 ]);
 
 app.config(routes);
+app.config(restmodConfig);

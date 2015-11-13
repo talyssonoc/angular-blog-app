@@ -1,30 +1,25 @@
 class AddCommentController {
-  static $inject = ['Comment', 'eventEmitter'];
+  static $inject = ['eventEmitter'];
 
-  constructor(Comment, eventEmitter) {
+  constructor(eventEmitter) {
     this.deps = {
-      Comment,
       eventEmitter
     };
   }
 
   submitComment() {
     const {
-      Comment,
       eventEmitter
     } = this.deps;
 
-    let comment = new Comment({
+
+    let commentData = {
       body: this.commentBody,
-      userId: this.author.id,
-      postId: this.postId
-    });
+      user: this.author
+    };
 
-    comment.$save(() => {
-      eventEmitter.emit('NEW_COMMENT');
-
-      this.commentBody = '';
-    });
+    eventEmitter.emit('NEW_COMMENT', commentData);
+    this.commentBody = '';
   }
 }
 

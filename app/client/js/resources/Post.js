@@ -1,21 +1,26 @@
 const PostFactory = [
-  '$resource', 'blogConfig',
-  ($resource, blogConfig) => {
+  'restmod', 'blogConfig',
+  (restmod, blogConfig) => {
     const apiUrl = blogConfig.get('apiUrl');
 
-    const Post = $resource(`${ apiUrl }/posts/:id`,
-    null,
-    {
-      page: {
-        url: `${ apiUrl }/posts`,
-        isArray: true,
-        params: {
-          _limit: blogConfig.get('postsPerPage')
-        }
-      },
+    const Post = restmod.model(`${ apiUrl }/posts`)
+    .mix({
       comments: {
-        url: `${ apiUrl }/posts/:postId/comments`,
-        isArray: true
+        hasMany: 'Comment',
+        inverseOf: 'post'
+      },
+      user: {
+        belongsTo: 'User'
+      },
+      $extend: {
+        Model: {
+          $page(page) {
+            return this.$search({
+              _start: (page - 1) * blogConfig.get('postsPerPage'),
+              _limit: blogConfig.get('postsPerPage')
+            });
+          }
+        }
       }
     });
 
