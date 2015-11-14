@@ -2,15 +2,13 @@ class PageController {
   static $inject = [
     '$stateParams',
     'setTitle',
-    'blogConfig',
     'Post'
   ];
 
-  constructor($stateParams, setTitle, blogConfig, Post) {
+  constructor($stateParams, setTitle, Post) {
     this.deps = {
       $stateParams,
       setTitle,
-      blogConfig,
       Post
     };
 
@@ -25,8 +23,7 @@ class PageController {
 
   loadPosts() {
     const {
-      Post,
-      blogConfig
+      Post
     } = this.deps;
 
     Post.$page(this.pageNumber).$then((posts) => {

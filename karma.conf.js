@@ -14,7 +14,7 @@ module.exports = function(config) {
     ],
 
     files: [
-      'spec/**/*.js',
+      'spec/**/*-spec.js',
       'app/client/js/index.js'
     ],
 

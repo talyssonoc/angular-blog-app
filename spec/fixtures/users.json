@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Eleanora Runolfsdottir",
+    "username": "Eleanora.Runolfsdottir",
+    "email": "eleanora.runolfsdottir@gmail.com",
+    "gender": 1,
+    "dateOfBirth": "2001-02-13T15:09:11.801Z",
+    "ocuppation": "Product Branding Supervisor",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/adamsxu/128.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Judge Durgan",
+    "username": "Judge58",
+    "email": "judge.durgan@yahoo.com",
+    "gender": 2,
+    "dateOfBirth": "1975-05-10T04:07:20.651Z",
+    "ocuppation": "International Operations Liason",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/mrxloka/128.jpg"
+  }
+]

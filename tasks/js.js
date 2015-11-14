@@ -33,15 +33,6 @@ gulp.task('lint:js', function () {
     .pipe(eslint.failOnError());
 });
 
-gulp.task('test:js', function(done) {
-  var server = new Server({
-    configFile: path.join(__dirname, '../karma.conf.js'),
-    action: 'start'
-  }, done);
-
-  server.start();
-});
-
 gulp.task('watch:js', ['build:js'], function() {
   gulp.watch(jsGlob, ['build:js']);
 });
