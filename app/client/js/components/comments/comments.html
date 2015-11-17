@@ -6,25 +6,19 @@
     <button
       type="submit"
       data-ng-hide="ctrl.showComments"
-      class="pure-button pure-button-primary"
     >
       Show comments
     </button>
 
     <button
       data-ng-show="ctrl.showComments"
-      class="pure-button pure-button-primary"
     >
       Hide comments
     </button>
   </span>
 
-  <ul
-    data-ng-show="ctrl.showComments && ctrl.comments.length"
-  >
-    <li
-      data-ng-repeat="comment in ctrl.comments track by comment.id"
-    >
+  <ul data-ng-show="ctrl.showComments && ctrl.comments.length">
+    <li data-ng-repeat="comment in ctrl.comments track by comment.id">
       {{ comment.body }}
     </li>
   </ul>

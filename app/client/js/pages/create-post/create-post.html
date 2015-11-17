@@ -1,0 +1,29 @@
+<layout>
+  <input type="text" placeholder="Post title" data-ng-model="ctrl.post.title">
+
+  <textarea placeholder="Post content" data-ng-model="ctrl.post.body"></textarea>
+
+  <input type="text" placeholder="Image" data-ng-model="ctrl.post.image">
+
+  <label for="user">User</label>
+
+  <select
+    data-ng-model="ctrl.post.user"
+    data-ng-options="user.name for user in ctrl.users track by user.id"
+    id="user"
+  ></select>
+
+  <label for="category">Category</label>
+
+  <select
+    data-ng-model="ctrl.post.category"
+    data-ng-options="category.name for category in ctrl.categories track by category.id"
+  ></select>
+
+  <button
+    type="submit"
+    data-ng-click="ctrl.savePost()"
+  >
+    Save post
+  </button>
+</layout>

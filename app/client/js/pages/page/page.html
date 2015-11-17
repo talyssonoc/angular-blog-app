@@ -1,7 +1,5 @@
 <layout>
-  <div
-    data-ng-repeat="post in ctrl.posts track by post.id"
-  >
+  <div data-ng-repeat="post in ctrl.posts track by post.id">
     <post post="post"></post>
     <hr>
   </div>
@@ -14,9 +12,7 @@
       « Newer
     </a>
 
-    <a
-      data-ui-sref="page({ pageNumber: ctrl.pageNumber + 1 })"
-    >
+    <a data-ui-sref="page({ pageNumber: ctrl.pageNumber + 1 })">
       Older »
     </a>
   </nav>

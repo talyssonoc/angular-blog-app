@@ -16,8 +16,12 @@ const routes = [
         template: '<page></page>'
       })
       .state('post', {
-        url: '/post/:id',
+        url: '/post/{id:int}',
         template: '<post-page></post-page>'
+      })
+      .state('createPost', {
+        url: '/post/new',
+        template: '<create-post></create-post>'
       });
   }
 ];

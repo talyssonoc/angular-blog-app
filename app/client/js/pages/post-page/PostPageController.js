@@ -44,7 +44,7 @@ class PostPageController {
 
     Post.$find(this.postId, {
       _embed: 'comments',
-      _expand: ['user', 'post']
+      _expand: ['user', 'category']
     }).$then((post) => {
       this.title = `${post.title} - Blog app`;
       setTitle(this.title);
@@ -52,6 +52,7 @@ class PostPageController {
       this.post = post;
       this.comments = post.comments;
       this.user = post.user;
+      this.category = post.category;
     });
   }
 

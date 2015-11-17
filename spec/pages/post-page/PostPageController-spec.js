@@ -1,6 +1,6 @@
 import PostPageController from 'pages/post-page/PostPageController';
 
-describe('PostPageController', () => {
+describe('PostPageController', function() {
   var eventEmitter,
       setTitle,
       Post,
@@ -9,7 +9,7 @@ describe('PostPageController', () => {
       postData,
       usersData;
 
-  before(() => {
+  before(function() {
     postData = require('../../fixtures/posts.json')[0];
     usersData = require('../../fixtures/users.json');
 
@@ -37,11 +37,11 @@ describe('PostPageController', () => {
     Comment = {};
   });
 
-  after(() => {
+  after(function() {
     delete postData.user;
   });
 
-  it('should query the post and users', () => {
+  it('should query the post and users', function() {
     sinon.spy(Post, '$find');
     sinon.spy(User, '$search');
 
